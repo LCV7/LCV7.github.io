@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Perfil de {{full_name}}</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .profile {
+            width: 50%;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 2px 2px 12px #aaa;
+        }
+        h1 { text-align: center; }
+        p { font-size: 1.2em; }
+    </style>
+</head>
+<body>
+    <div class="profile">
+        <h1>{{full_name}}</h1>
+        <p><strong>Username:</strong> {{user_name}}</p>
+        <p><strong>Gmail:</strong> {{gmail}}</p>
+        <p><strong>Birthdate:</strong> {{birth_date}}</p>
+        <p><strong>Height:</strong> {{height}} cm</p>
+    </div>
+</body>
+</html>
