@@ -1,28 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Perfil de {{full_name}}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Password Visibility</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        .profile {
-            width: 50%;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 2px 2px 12px #aaa;
+        .container {
+            display: flex; /* Utiliza Flexbox para alinear los elementos en línea */
+            align-items: center; /* Centra verticalmente los elementos dentro del contenedor */
         }
-        h1 { text-align: center; }
-        p { font-size: 1.2em; }
+        #password-display {
+            margin-right: 10px; /* Añade espacio a la derecha del párrafo */
+        }
     </style>
 </head>
 <body>
-    <div class="profile">
-        <h1>{{full_name}}</h1>
-        <p><strong>Username:</strong> {{user_name}}</p>
-        <p><strong>Gmail:</strong> {{gmail}}</p>
-        <p><strong>Birthdate:</strong> {{birth_date}}</p>
-        <p><strong>Height:</strong> {{height}} cm</p>
+    <div class="container">
+        <p id="password-display"><strong>Password:</strong> ********</p>
+        <button id="toggle-password-btn">Show Password</button>
     </div>
+
+    <script>
+        let password = "Hola123";
+        let isMasked = true; // Rastrea si la contraseña está enmascarada
+
+        // Añade un listener al botón para el evento 'click'
+        document.getElementById("toggle-password-btn").addEventListener("click", function() {
+            // Selecciona el elemento del párrafo
+            let passwordDisplay = document.getElementById("password-display");
+            
+            // Alternar entre la versión enmascarada y la versión real de la contraseña
+            if (isMasked) {
+                passwordDisplay.innerHTML = "<strong>Password:</strong> " + password;
+                this.textContent = "Hide Password"; // Cambia el texto del botón
+            } else {
+                // Crear una cadena de asteriscos con la longitud de la contraseña y mantener la etiqueta <strong>
+                passwordDisplay.innerHTML = "<strong>Password:</strong> " + "*".repeat(password.length);
+                this.textContent = "Show Password"; // Cambia el texto del botón
+            }
+            
+            // Cambiar el estado de la variable isMasked
+            isMasked = !isMasked; 
+        });
+    </script>
 </body>
 </html>
